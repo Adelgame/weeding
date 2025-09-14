@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Влад и Аня</title>
+
+  <!-- Подключаем внешний CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Подключаем Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <h1 class="main_text">Приглашение на свадьбу</h1>
+
+    <div class="main">
+      <img src="pic1.png" alt="" class="main_pic"/>
+      <div class="info_text">
+        <p class="data italic">Владислав<br>и<br>Анна</p>
+        <p class="april main_text">25.04.2026</p>
+        <p class="data main_text">Суббота</p>
+      </div>  
+      <img src="pic2.png" alt="" class="main_pic"/>
+      
+    </div>
+
+    <p class="main_text">Совсем скоро состоится день нашей свадьбы и мы будем счастливы, если вы разделите его с нами!</p>
+  </div>
+
+  <!-- Обратный отсчёт -->
+  <section class="countdown-section">
+    <h2 class="italic">До события:</h2>
+    <div id="countdown" class="countdown">
+      <div class="time main_text">
+        <span id="days">0</span><small id="days-label">дней</small>
+      </div>
+      <div class="time main_text">
+        <span id="hours">0</span><small id="hours-label">часов</small>
+      </div>
+      <div class="time main_text">
+        <span id="minutes">0</span><small id="minutes-label">минут</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- План мероприятия -->
+  <div class="plan">
+    <p class="main_text plan_name">План мероприятия</p>
+    <div class="plan_block">
+      <img class="place_pic zags" src="zags.jpg" alt=""/>
+      <div class="mini_block">
+        <p class="small_text place_name">Дворец бракосочетания №4</p>
+        <p class="small_text timing">13:00 Сбор гостей</p>
+        <p class="small_text timing">13:15 Торжественная роспись</p>
+        <a href="https://yandex.ru/maps/-/CLaViRpq" target="_blank" rel="noopener" class="btn small_text">Где находится?</a>
+      </div>
+    </div>
+    <div class="plan_block plan_regul">
+      <div class="mini_block">
+        <p class="small_text place_name" >Ресторан REGUL</p>
+        <p class="small_text timing">14:00 Трансфер</p>
+        <p class="small_text timing">14:30 Начало банкета</p>
+        <a href="https://yandex.ru/maps/-/CLaVi86N" target="_blank" rel="noopener" class="btn small_text">Где находится?</a>
+      </div>
+      <img class="place_pic regul" src="regul.jpg" alt=""/>
+    </div>
+  </div>
+
+  <div>
+    <p class="main_text">На нашей свадьбе нет дресскода, но мы будем рады, если вы предпочтете нарядную одежду спокойных цветов.</p>
+    <p class="italic">До встречи на торжестве!</p>
+  </div>
+
+  <!-- Скрипт -->
+  <script>
+    const deadline = new Date(2026, 3, 25, 13, 0); // 25 апреля 2026, 13:00
+
+    function declOfNum(number, titles) {
+      const cases = [2, 0, 1, 1, 1, 2];
+      return titles[
+        (number % 100 > 4 && number % 100 < 20)
+          ? 2
+          : cases[(number % 10 < 5) ? number % 10 : 5]
+      ];
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = deadline - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "<strong>Событие наступило!</strong>";
+        clearInterval(timer);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+
+      document.getElementById("days-label").textContent = declOfNum(days, ["день", "дня", "дней"]);
+      document.getElementById("hours-label").textContent = declOfNum(hours, ["час", "часа", "часов"]);
+      document.getElementById("minutes-label").textContent = declOfNum(minutes, ["минута", "минуты", "минут"]);
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
