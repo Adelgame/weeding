@@ -74,6 +74,12 @@ img {
   line-height: 1;
 }
 
+.big_text{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .time{
   display: flex;
   flex-direction: column;
