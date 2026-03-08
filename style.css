@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
   scrollbar-width: none;   /* Firefox */
 }
@@ -280,3 +281,287 @@ a {
   }
 
 }
+=======
+html {
+  scrollbar-width: none;   /* Firefox */
+}
+
+html::-webkit-scrollbar {
+  display: none;           /* Chrome, Safari, Edge */
+}
+
+html, body {
+  overflow-x: hidden; /* отключает горизонтальный скролл */
+}
+
+
+h1{
+  margin-top: 0%;
+  margin-bottom: 4%;
+}
+
+.main{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  gap: 12px;
+  align-items: flex-start;   /* важно: не stretch */
+  flex-wrap: wrap;
+  justify-content: center;   /* по центру по горизонтали */
+  align-items: center; 
+}
+
+.svg_palm{    
+  z-index: 9999;         
+  pointer-events: none;
+  width: 40%; 
+  height: auto;
+}
+
+.top_palm{
+  position: absolute;
+  top: 0%;          /* отступ сверху */
+  left: -20%;
+}
+
+.bottom_palm{
+  position: fixed; 
+  bottom: 0%;             /* отступ сверху */
+  right: -20%;
+}
+
+.info_text{
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 30vw;   /* фиксируем базовую ширину, но даём гибкость */
+  min-width: 160px;
+}
+
+.data{
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+.april{
+  margin-bottom: 0%;
+}
+
+.main_pic,
+.place_pic,
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  align-self: flex-start; /* на всякий случай — не даём растянуться flex-контейнером */
+}
+
+.main_pic{
+  width: 27%;
+}
+
+.main_text {
+  font-family: "Poiret One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 64px;
+  color: #002E5D;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.italic {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 90px;
+  color: #002E5D;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1;
+}
+
+.big_text{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.time{
+  display: flex;
+  flex-direction: column;
+}
+
+.countdown{
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  margin: auto;
+}
+
+.plan{
+  background-color: #C5D8E5;
+  width: 100%;
+}
+
+.small_text{
+  font-family: "Poiret One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 46px;
+  color: #002E5D;
+}
+
+a {
+  text-decoration: none; /* убирает подчёркивание */
+  color: inherit;        /* делает цвет как у текста вокруг */
+}
+
+.place_pic{
+  width: 47%;
+}
+
+.plan_block{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mini_block{
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.regul{
+  margin-right: 5%;
+}
+
+.zags{
+  margin-left: 5%;
+}
+
+.timing{
+  margin-top: 0%;
+  margin-bottom: 2vh;
+}
+
+.btn {
+  display: inline-block;           /* чтобы можно было задавать padding */
+  padding: 14px 48px;              /* вертикальные и горизонтальные отступы */
+  background-color: #7B9AB9;       /* цвет кнопки похожий на твой */
+  color: white;                  /* цвет текста */             
+  text-decoration: none;           /* убираем подчёркивание */
+  border-radius: 50px;             /* скругление по краям */
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+/* Эффект при наведении */
+.btn:hover {
+  background-color: #4A7199;       /* чуть темнее при наведении */
+}
+
+.plan_name{
+  padding: 5%;
+  margin-bottom: 0%;
+}
+
+/* Планшеты */
+@media (max-width: 1150px) {
+  .main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    gap: 8px;
+  }
+
+  .main_pic,
+  .place_pic,
+  img {
+    margin: auto;
+  }
+
+  .info_text{
+    margin-top: 5%;
+  }
+
+  .italic{
+    font-size: clamp(56px, 7vw, 90px);;
+  }
+
+  .main_text {
+    font-size: clamp(42px, 6vw, 64px);;
+  }
+
+  .small_text{
+    font-size: clamp(34px, 4vw, 46px);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .plan_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .plan_regul{
+    flex-direction: column-reverse;
+  }
+
+  .place_pic{
+    width: 65%;
+  }
+
+  .main_pic{
+    width: 50%;
+  }
+
+  .top_palm{ 
+    top: 10%;          /* отступ сверху */
+    left: -20%;
+  }
+
+  .bottom_palm{
+    bottom: 2%;             /* отступ сверху */
+    right: -20%;
+  }
+
+  .svg_palm{
+    width: 50%; 
+  }
+
+  .fotter{
+    margin-bottom: 25%;
+  }
+
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+
+  .italic{
+    font-size: clamp(42px, 7vw, 56px);
+  }
+
+  .main_text {
+    font-size: clamp(30px, 6vw, 42px);
+  }
+
+  .small_text{
+    font-size: clamp(20px, 5vw, 34px);}
+
+  .countdown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+>>>>>>> dce927177aea68224d5010f9f25bdb8a90cfdd19
